@@ -48,7 +48,7 @@ var upload = multer({ dest: './uploads/' });
 
 // ----------------------- FUNCTIONS -----------------------
 function getquote(){ // Buat quotes
-	quotenumber = Math.floor(Math.random() * (quotes.length-1));
+	quotenumber = Math.floor(Math.random() * (quotes.length-5))
 	quote=quotes[quotenumber];
 	if (namahari=='Jumat') quote=quotes[21];
 	if (bulanh=='Syawal') quote=quotes[24];
