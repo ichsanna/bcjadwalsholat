@@ -1,4 +1,29 @@
 <html>
+<style>
+      .upload-btn-wrapper {
+         position: relative;
+         overflow: hidden;
+         display: inline-block;
+       }
+       
+       .btn {
+         border: 2px solid gray;
+         color: gray;
+         background-color: white;
+         padding: 8px 20px;
+         border-radius: 8px;
+         font-size: 20px;
+         font-weight: bold;
+       }
+       
+       .upload-btn-wrapper input[type=file] {
+         font-size: 100px;
+         position: absolute;
+         left: 0;
+         top: 0;
+         opacity: 0;
+       }
+      </style>
 <body>
    <div claa="col-md-6">
       1. Buka situs <a href="https://bimasislam.kemenag.go.id/jadwalshalat">Bimasislam</a></br>
@@ -7,13 +32,17 @@
       4. Klik export excel</br>
       5. Upload excel yang telah didownload</br></br>
    </div>
-   <div class="col-md-6">
+   <div  class="upload-btn-wrapper">
       <form action="/upload" enctype="multipart/form-data" method="POST">
-         <input type="file" name="excelfile" accept=".xls"/>
-         <input type="submit" value="Upload file" />
+         <!-- <input type="submit" value="Upload file" /> -->
+         <button class="btn" type="submit">Upload file</button>
+         <input type="file" name="excelfile" accept=".xls" onchange="this.form.submit();"/>
       </form>
    </div>
    <script src="js/jquery-3.2.1.slim.min.js"></script>
+   <script>
+      $("input[name='excelfile']").change(function() { this.form.submit(); });
+      </script>
 </body>
 
 </html>
