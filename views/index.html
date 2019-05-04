@@ -2,25 +2,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/index.css" rel="stylesheet">
 
-<body>
+<body style="margin-top: 20px">
    <div class="col-md-6">
-      1. Buka situs <a href="https://bimasislam.kemenag.go.id/jadwalshalat">Bimasislam</a><br>
-      2. Pilih provinsi D.I. Yogyakarta, kota Yogyakarta, pilih juga bulan dan tahun<br>
-      3. Klik proses data, tunggu hingga muncul data<br>
-      4. Klik export excel<br>
-      5. Upload excel yang telah didownload<br><br>
+      <ol>
+         <li>Buka situs <a href="https://bimasislam.kemenag.go.id/jadwalshalat">Bimasislam</a></li>
+         <li>Pilih provinsi D.I. Yogyakarta, kota Yogyakarta, pilih juga bulan dan tahun</li>
+         <li>Klik proses data, tunggu hingga muncul data</li>
+         <li>Klik export excel</li>
+         <li>Upload excel yang telah didownload<br></li>
+      </ol>
    </div>
-   <div class="upload-btn-wrapper">
+   <div class="upload-btn-wrapper" style="margin-left: 20px">
       <form action="/upload" enctype="multipart/form-data" method="POST">
          <button class="btn" type="submit">Upload file</button>
          <input type="file" name="excelfile" accept=".xls" />
       </form>
    </div>
+   <div class="navbar">
+      <a>Made with love, by Ichsan NA</a>
+      <a href="https://github.com/ichsanna/jadwalsholatkmt">Source Code</a>
+   </div>
    <script src="js/jquery-3.2.1.slim.min.js"></script>
    <script>
       $("input[name='excelfile']").change(function () {
          this.form.submit();
-      });
+      });   
    </script>
 </body>
 
