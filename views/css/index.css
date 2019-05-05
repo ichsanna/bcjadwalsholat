@@ -34,13 +34,22 @@ body{
   width: 100%;
 }
 
-/* Style the links inside the navigation bar */
-.navbar a {
+#ull {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.lii {
   float: left;
+}
+
+.lii a {
   display: block;
-  color: #f2f2f2;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
 }
