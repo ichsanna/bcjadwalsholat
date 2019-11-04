@@ -65,7 +65,7 @@ function parsetanggal(tgl) { // Buat parse tanggal
 	tahun = tgl.substr(-4,4);
 	// Tanggal Hijriah
 	date = new Date(Number(tahun),Number(bulan),hari);
-	date.setDate(date.getDate()-2);  // Setting akurasi dikurangi 2 hari
+	date.setDate(date.getDate());  // Setting akurasi dikurangi 2 hari
 	hijrahDate = new hijrahdate(date);
 	harih=hijrahDate.getDate().toString();
 	bulanh=hijrahDate.getMonth().toString();
@@ -100,10 +100,10 @@ function parsetanggal(tgl) { // Buat parse tanggal
 }
 
 // ----------------------- ROUTES -----------------------
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
 	res.render('index');
 });
-router.get('/hasil', function (req, res, next) {
+router.get('/hasil', function (req, res) {
 	jumlah = output["JADWAL SHALAT"].length; // Jumlah hari dalam 1 bulan
 	stringout = "<br>";
 	for (var i = 6; i < jumlah; i++) { // Index pertama waktu sholat = 6
@@ -127,7 +127,7 @@ router.get('/hasil', function (req, res, next) {
 	res.set('Content-Type', 'text/html'); // Output string jadi format html
 	res.send("<div class=\"text\">" + stringout + "</div>");
 });
-router.post('/upload', upload.single('excelfile'), function (req, res, next) {
+router.post('/upload', upload.single('excelfile'), function (req, res) {
 	output = xlstojson({ // Convert file xls ke format JSON
 		sourceFile: req.file.destination + req.file.filename
 	});
